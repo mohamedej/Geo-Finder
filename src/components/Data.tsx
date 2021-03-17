@@ -1,14 +1,15 @@
 import React from "react";
-import "./Styles/Data.css";
+import "../assets/styles/data.css";
 
 interface DataProps {
   ip: string;
   timezone: string;
   region: string;
   isp: string;
+  data: any;
 }
 
-const Data: React.FC<DataProps> = ({ timezone, region, isp, ip }) => {
+const Data: React.FC<DataProps> = ({ timezone, region, isp, ip, data }) => {
   return (
     <div className="main-container">
       <div className="data-container">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Styles/Search.css";
-import Arrow from "./Images/icon-arrow.svg";
+import "../assets/styles/search.css";
+import Arrow from "../assets/Images/icon-arrow.svg";
 import Data from "./Data";
 
 interface SearchProps {
@@ -9,6 +9,7 @@ interface SearchProps {
   setIp: (ip: string) => void;
   timezone: string;
   region: string;
+  data: any;
   isp: string;
 }
 
@@ -19,6 +20,7 @@ const Search: React.FC<SearchProps> = ({
   timezone,
   region,
   isp,
+  data,
 }) => {
   return (
     <div className="search-bar">
@@ -32,12 +34,17 @@ const Search: React.FC<SearchProps> = ({
               setIp(event.target.value);
             }}
           ></input>
-          <button className="input-button" type="submit" onClick={callingApi}>
+          <button
+            className="input-button"
+            type="submit"
+            disabled={false}
+            onClick={callingApi}
+          >
             <img src={Arrow} alt="arrow" />
           </button>
         </div>
       </div>
-      <Data ip={ip} isp={isp} region={region} timezone={timezone} />
+      <Data data={data} ip={ip} isp={isp} region={region} timezone={timezone} />
     </div>
   );
 };
